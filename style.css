@@ -1,0 +1,158 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Russo One', sans-serif;
+}
+
+body {
+  background: url("https://img.konami.com/efootball/s/img/main_page_1.png?v=839") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.section {
+  display: none;
+  text-align: center;
+  color: white;
+}
+
+.section.active {
+  display: block;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.8);
+  margin: 20px auto;
+}
+
+.logo {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+h1, h2 {
+  margin-bottom: 15px;
+}
+
+h1 span, h2 .highlight {
+  color: #00aaff;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 12px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+button {
+  background: linear-gradient(to bottom, #28a745, #1e7e34);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to bottom, #34d058, #22863a);
+}
+
+/* === SECCIÓN 2 === */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+.cards-grid .card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cards-grid .card img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.cards-grid .card.selected {
+  border: 3px solid #00aaff;
+  box-shadow: 0 0 15px #00aaff;
+  transform: scale(1.05);
+}
+
+/* === SECCIÓN 3 === */
+.card-fixed {
+  height: 300px;
+}
+.spinner {
+  margin: 20px auto;
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ddd;
+  border-top: 6px solid #00aaff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === SECCIÓN 4 === */
+/* Ajuste sección final */
+#finalCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centra las cartas si hay pocas */
+  gap: 15px;
+}
+
+#finalCards .card {
+  width: 200px; /* tamaño fijo para todas las cartas */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#finalCards .card img {
+  max-width: 100%;
+  max-height: 280px; /* evita desborde de imágenes altas */
+  object-fit: contain;
+  border-radius: 10px;
+}

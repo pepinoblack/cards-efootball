@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Efootball Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="container">
+
+    <!-- SECTION 1 -->
+    <div id="section1" class="section active">
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/EFootball_logo_-_alternative_colored_version.svg/2560px-EFootball_logo_-_alternative_colored_version.svg.png" alt="Efootball Logo" class="logo">
+        <h2>Generator <span class="highlight">Efootmaster</span></h2>
+        <input type="text" id="playerID" placeholder="Enter your ID" required>
+        <button onclick="goToCards()">Generate</button>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div id="section2" class="section">
+      <div class="card">
+        <h2>Select your cards</h2>
+        <div id="cardsContainer" class="cards-grid"></div>
+        <button onclick="goToSearching()">Continue</button>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div id="section3" class="section">
+      <div class="card card-fixed">
+        <h2>Searching player...</h2>
+        <p id="searchingPlayer"></p>
+        <div class="spinner"></div>
+        <p id="loadingText">Loading</p>
+      </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div id="section4" class="section">
+      <div class="card">
+        <h2>🎉 Congratulations 🎉</h2>
+        <p>you have received Efootball rewards</p>
+        <div id="finalCards" class="cards-grid"></div>
+        <button onclick="restart()">Generate again</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti 🎆 -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
