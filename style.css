@@ -1,158 +1,201 @@
-/* === RESET === */
+/* === GENERAL === */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Russo One', sans-serif;
 }
 
 body {
-  background: url("https://img.konami.com/efootball/s/img/main_page_1.png?v=839") no-repeat center center fixed;
-  background-size: cover;
-  position: relative;
   min-height: 100vh;
+  background: url('https://efootballchampionship.konami.net//media/items/efootball_home_carrusel.jpg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.overlay {
+/* Oscurecer fondo un poco */
+.background-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
 
+/* === CONTENEDOR GENERAL === */
 .container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding: 20px;
 }
 
+/* === SECCIONES === */
 .section {
   display: none;
-  text-align: center;
-  color: white;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .section.active {
-  display: block;
+  display: flex;
 }
 
-.card {
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.8);
-  margin: 20px auto;
-}
-
-.logo {
-  max-width: 200px;
-  margin-bottom: 20px;
-}
-
-h1, h2 {
-  margin-bottom: 15px;
-}
-
-h1 span, h2 .highlight {
-  color: #00aaff;
-}
-
-input[type="text"] {
-  width: 80%;
-  padding: 12px;
-  margin: 15px 0;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  font-size: 16px;
+.content-box {
+  background: rgba(0, 40, 0, 0.8);
+  border: 3px solid #00ff66;
+  box-shadow: 0 0 20px #00ff66aa;
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
   text-align: center;
+  color: white;
+  backdrop-filter: blur(6px);
+}
+
+.content-box img{
+      width: 100%;
+      margin-bottom: 7%;
+}
+
+/* La sección 2 tendrá un tamaño más grande */
+.content-box.big {
+  max-width: 800px;
+  background: rgba(0, 30, 60, 0.8);
+  border-color: #00bfff;
+  box-shadow: 0 0 25px #00bfff99;
+}
+
+/* === TITULOS === */
+h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #00ff99;
+}
+
+.highlight {
+  color: #00ffcc;
+}
+
+/* === INPUT Y BOTÓN === */
+input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #00ffcc;
+  margin: 15px 0;
+  font-size: 1rem;
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+  color: white;
 }
 
 button {
-  background: linear-gradient(to bottom, #28a745, #1e7e34);
+  background: linear-gradient(90deg, #007f0e, #00ff66);
   color: white;
-  padding: 12px 20px;
+  font-size: 1.2rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
+  padding: 12px 25px;
   cursor: pointer;
-  font-size: 18px;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: 0.3s;
 }
+
 button:hover {
   transform: scale(1.05);
-  background: linear-gradient(to bottom, #34d058, #22863a);
+  box-shadow: 0 0 15px #00ff99;
 }
 
-/* === SECCIÓN 2 === */
+/* === CARTAS === */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 15px;
-  margin: 20px 0;
-}
-.cards-grid .card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 10px;
-  cursor: pointer;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.cards-grid .card img {
-  max-width: 100%;
-  border-radius: 10px;
-}
-.cards-grid .card.selected {
-  border: 3px solid #00aaff;
-  box-shadow: 0 0 15px #00aaff;
-  transform: scale(1.05);
+  justify-items: center;
+  margin-bottom: 25px;
 }
 
-/* === SECCIÓN 3 === */
-.card-fixed {
-  height: 300px;
+.card {
+  border: 3px solid #00ff99;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.05);
 }
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ff99aa;
+}
+
+.card.selected {
+  border-color: gold;
+  box-shadow: 0 0 20px gold;
+}
+
+/* === SPINNER === */
 .spinner {
   margin: 20px auto;
-  width: 50px;
-  height: 50px;
-  border: 6px solid #ddd;
-  border-top: 6px solid #00aaff;
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top: 6px solid #00ffcc;
   border-radius: 50%;
+  width: 64px;
+  height: 64px;
   animation: spin 1s linear infinite;
 }
+
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-/* === SECCIÓN 4 === */
-/* Ajuste sección final */
-#finalCards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* centra las cartas si hay pocas */
-  gap: 15px;
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .content-box {
+    padding: 25px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    margin-top: 15%;
+  }
 }
 
-#finalCards .card {
-  width: 200px; /* tamaño fijo para todas las cartas */
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+@media (max-width: 480px) {
+  .content-box {
+    padding: 20px;
+    border-width: 2px;
+  }
 
-#finalCards .card img {
-  max-width: 100%;
-  max-height: 280px; /* evita desborde de imágenes altas */
-  object-fit: contain;
-  border-radius: 10px;
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
 }
